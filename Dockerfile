@@ -3,14 +3,11 @@ FROM node:18
 WORKDIR /usr/src/app
 
 COPY package*.json ./
-
-RUN npm install
+RUN npm install --production
 
 COPY . .
 
 EXPOSE 3000
 
-CMD ["node", "app.js"]
-
-# This is my Dockerfile for Node.js app
+CMD ["node", "index.js"]
 
