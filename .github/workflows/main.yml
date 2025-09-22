@@ -30,8 +30,8 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build Docker image
-        run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/nodejs-demo-app .
+        run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/nodejs-demo-app:${{ github.sha }} .
 
       - name: Push to DockerHub
-        run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/nodejs-demo-app
+        run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/nodejs-demo-app:${{ github.sha }}
 
