@@ -35,20 +35,3 @@ jobs:
       - name: Push to DockerHub
         run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/nodejs-demo-app
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
