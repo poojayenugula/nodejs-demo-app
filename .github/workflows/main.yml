@@ -20,7 +20,7 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build Docker image
+      - name: Build Docker image (local tag)
         run: docker build -t myapp .
 
       - name: Log in to DockerHub
@@ -32,6 +32,6 @@ jobs:
       - name: Build Docker image with tag
         run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/nodejs-demo-app:${{ github.sha }} .
 
-      - name: Push to DockerHub
+      - name: Push Docker image to DockerHub
         run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/nodejs-demo-app:${{ github.sha }}
 
